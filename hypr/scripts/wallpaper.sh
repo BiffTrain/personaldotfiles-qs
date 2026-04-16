@@ -102,41 +102,15 @@ else
 fi
 
 # -----------------------------------------------------
-# Execute matugen
-# -----------------------------------------------------
-echo ":: Execute matugen with $used_wallpaper"
-matugen image "$used_wallpaper" -m "dark" --source-color-index 0
-
-# -----------------------------------------------------
-# Walcord (NOT SUPPORTED)
-# -----------------------------------------------------
-if type walcord >/dev/null 2>&1; then
-    walcord
-fi
-
-# -----------------------------------------------------
 # Reload Waybar
 # -----------------------------------------------------
-killall -SIGUSR2 waybar
+
 
 # -----------------------------------------------------
-# Reload nwg-dock-hyprland
+# matugen
 # -----------------------------------------------------
-$HOME/.config/nwg-dock-hyprland/launch.sh &
 
-# -----------------------------------------------------
-# Update Pywalfox
-# -----------------------------------------------------
-if type pywalfox >/dev/null 2>&1; then
-    pywalfox update
-fi
-
-# -----------------------------------------------------
-# Update SwayNC
-# -----------------------------------------------------
-sleep 0.1
-swaync-client -rs
-
+matugen image $wallpaper --source-color-index 0
 # -----------------------------------------------------
 # Hyprshade toggle
 # -----------------------------------------------------
@@ -171,10 +145,4 @@ else
     # -----------------------------------------------------
     echo "* { current-image: url(\"$blurredwallpaper\", height); }" >"$rasifile"
 
-    # -----------------------------------------------------
-    # Create square wallpaper
-    # -----------------------------------------------------
-    echo ":: Generate new cached wallpaper square-$wallpaperfilename"
-    magick "$tmpwallpaper" -gravity Center -extent 1:1 "$squarewallpaper"
-    cp "$squarewallpaper" "$generatedversions/square-$wallpaperfilename.png"
 fi
