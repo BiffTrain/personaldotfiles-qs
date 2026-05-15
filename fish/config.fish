@@ -16,6 +16,7 @@ if status is-interactive
     # -----------------------------------------------------
     oh-my-posh init fish --config ~/.config/fish/theme/EDM115-newline.omp.json | source
 
+
     # -----------------------------------------------------
     # General
     # -----------------------------------------------------
@@ -39,6 +40,10 @@ if status is-interactive
     alias update='sudo pacman -Syu && yay -Syu && flatpak update'
     alias weblogfetch='nmcli device show | grep IP4.DNS'
     alias retarded-ass-motherfucker-you-should-kill-yourself-NOW='reboot'
-    alias keybindconf='$EDITOR ~/.config/hypr/conf/keybinding.conf'
+    alias keybindconf='$EDITOR ~/.config/hypr/conf/keybinding.lua'
+
+
 
 end
+
+

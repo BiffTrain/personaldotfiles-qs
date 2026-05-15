@@ -42,10 +42,10 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.72,
+        "backgroundOpacity": 0.6,
         "barType": "floating",
         "capsuleColorKey": "primary",
-        "capsuleOpacity": 0.3,
+        "capsuleOpacity": 0.25,
         "contentPadding": 0,
         "density": "spacious",
         "displayMode": "always_visible",
@@ -83,9 +83,9 @@
                 {
                     "characterCount": 2,
                     "colorizeIcons": false,
-                    "emptyColor": "secondary",
+                    "emptyColor": "tertiary",
                     "enableScrollWheel": true,
-                    "focusedColor": "primary",
+                    "focusedColor": "none",
                     "followFocusedScreen": false,
                     "fontWeight": "semibold",
                     "groupedBorderOpacity": 1,
@@ -94,7 +94,7 @@
                     "id": "Workspace",
                     "labelMode": "index",
                     "occupiedColor": "secondary",
-                    "pillSize": 0.75,
+                    "pillSize": 0.77,
                     "showApplications": false,
                     "showApplicationsHover": false,
                     "showBadge": true,
@@ -154,6 +154,12 @@
                 {
                     "displayMode": "alwaysShow",
                     "iconColor": "primary",
+                    "id": "Bluetooth",
+                    "textColor": "primary"
+                },
+                {
+                    "displayMode": "alwaysShow",
+                    "iconColor": "primary",
                     "id": "Network",
                     "textColor": "primary"
                 },
@@ -173,6 +179,41 @@
                     "unreadBadgeColor": "error"
                 },
                 {
+                    "colorizeSystemIcon": "primary",
+                    "colorizeSystemText": "none",
+                    "generalTooltipText": "Power Menu",
+                    "hideMode": "alwaysExpanded",
+                    "icon": "power",
+                    "iconPosition": "left",
+                    "id": "CustomButton",
+                    "ipcIdentifier": "",
+                    "leftClickExec": "~/.config/ml4w/scripts/wlogout.sh",
+                    "leftClickUpdateText": true,
+                    "maxTextLength": {
+                        "horizontal": 10,
+                        "vertical": 10
+                    },
+                    "middleClickExec": "",
+                    "middleClickUpdateText": false,
+                    "parseJson": false,
+                    "rightClickExec": "",
+                    "rightClickUpdateText": false,
+                    "showExecTooltip": false,
+                    "showIcon": true,
+                    "showTextTooltip": true,
+                    "textCollapse": "",
+                    "textCommand": "",
+                    "textIntervalMs": 3000,
+                    "textStream": false,
+                    "wheelDownExec": "",
+                    "wheelDownUpdateText": false,
+                    "wheelExec": "",
+                    "wheelMode": "unified",
+                    "wheelUpExec": "",
+                    "wheelUpUpdateText": false,
+                    "wheelUpdateText": false
+                },
+                {
                     "clockColor": "secondary",
                     "customFont": "",
                     "formatHorizontal": "HH:mm, MMM dd",
@@ -180,6 +221,19 @@
                     "id": "Clock",
                     "tooltipFormat": "dddd",
                     "useCustomFont": false
+                },
+                {
+                    "defaultSettings": {
+                        "catColor": "default",
+                        "catOffsetY": 0,
+                        "catSize": 1,
+                        "idleTimeout": 150,
+                        "raveMode": false,
+                        "tappyMode": false,
+                        "useMprisFilter": false,
+                        "waitingTimeout": 30000
+                    },
+                    "id": "plugin:slowbongo"
                 }
             ]
         }
