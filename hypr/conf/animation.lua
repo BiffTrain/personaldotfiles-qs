@@ -4,7 +4,7 @@ hl.curve("winOut", { type = "bezier", points = { {0.3, -0.3},  {0, 1}    } })
 hl.curve("liner",  { type = "bezier", points = { {1, 1},       {1, 1}    } })
 
 hl.animation({ leaf = "windows",      enabled = true, speed = 4,  bezier = "wind",  style = "slide" })
-hl.animation({ leaf = "windowsIn",    enabled = true, speed = 4,  bezier = "winIn", style = "popin 30%" })
+hl.animation({ leaf = "windowsIn",    enabled = true, speed = 4,  bezier = "winIn", style = "popin 0%" })
 hl.animation({ leaf = "windowsOut",   enabled = true, speed = 4,  bezier = "winOut", style = "popin 0%" })
 hl.animation({ leaf = "windowsMove",  enabled = true, speed = 4,  bezier = "wind",  style = "slide" })
 hl.animation({ leaf = "border",       enabled = true, speed = 1,  bezier = "liner" })

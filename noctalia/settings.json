@@ -33,7 +33,7 @@
         "preferredPlayer": "",
         "spectrumFrameRate": 30,
         "spectrumMirrored": true,
-        "visualizerType": "linear",
+        "visualizerType": "wave",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
         "volumeOverdrive": false,
@@ -42,7 +42,7 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 0.6,
+        "backgroundOpacity": 0.75,
         "barType": "floating",
         "capsuleColorKey": "primary",
         "capsuleOpacity": 0.25,
@@ -78,6 +78,45 @@
         "widgetSpacing": 8,
         "widgets": {
             "center": [
+                {
+                    "colorName": "primary",
+                    "hideWhenIdle": true,
+                    "id": "AudioVisualizer",
+                    "width": 300
+                },
+                {
+                    "defaultSettings": {
+                        "applyWallpaperColorsOnApply": false,
+                        "assetsDir": "",
+                        "autoApplyOnStartup": true,
+                        "defaultAudioReactiveEffects": true,
+                        "defaultClamp": "clamp",
+                        "defaultDisableMouse": false,
+                        "defaultDisableParallax": false,
+                        "defaultFps": 30,
+                        "defaultFullscreenPauseOnlyActive": false,
+                        "defaultMuted": true,
+                        "defaultNoAutomute": false,
+                        "defaultNoFullscreenPause": false,
+                        "defaultScaling": "fill",
+                        "defaultVolume": 100,
+                        "enableExtraPropertiesEditor": true,
+                        "iconColor": "none",
+                        "lastKnownGoodScreens": {
+                        },
+                        "panelLastSelectedPath": "",
+                        "runtimeRecoveryPending": false,
+                        "screens": {
+                        },
+                        "wallpaperColorScreenshots": {
+                        },
+                        "wallpaperProperties": {
+                        },
+                        "wallpaperScanCacheMinutes": 5,
+                        "wallpapersFolder": "~/.local/share/Steam/steamapps/workshop/content/431960"
+                    },
+                    "id": "plugin:linux-wallpaperengine-controller"
+                }
             ],
             "left": [
                 {
@@ -408,7 +447,7 @@
         "allowPanelsOnScreenWithoutBar": true,
         "allowPasswordWithFprintd": false,
         "animationDisabled": false,
-        "animationSpeed": 0.64,
+        "animationSpeed": 1,
         "autoStartAuth": false,
         "avatarImage": "/home/elhobo/.face",
         "boxRadiusRatio": 1,
@@ -421,7 +460,7 @@
         "enableLockScreenMediaControls": false,
         "enableShadows": false,
         "forceBlackScreenCorners": false,
-        "iRadiusRatio": 1.07,
+        "iRadiusRatio": 0.56,
         "keybinds": {
             "keyDown": [
                 "Down"
@@ -455,9 +494,9 @@
         ],
         "lockScreenTint": 0,
         "passwordChars": false,
-        "radiusRatio": 1.05,
+        "radiusRatio": 1,
         "reverseScroll": false,
-        "scaleRatio": 1,
+        "scaleRatio": 1.05,
         "screenRadiusRatio": 1,
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
@@ -717,10 +756,9 @@
         "skipStartupTransition": false,
         "solidColor": "#1a1a2e",
         "sortOrder": "name",
-        "transitionDuration": 2000,
+        "transitionDuration": 500,
         "transitionEdgeSmoothness": 0.2,
         "transitionType": [
-            "fade",
             "disc",
             "stripes",
             "wipe",

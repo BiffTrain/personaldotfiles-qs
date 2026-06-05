@@ -13,7 +13,7 @@ hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("~/.config/ml4w/settings/calculator.s
 hl.bind(mainMod .. " + Delete", hl.dsp.exec_cmd("flatpak run net.nokyan.Resources"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("~/.config/ml4w/settings/screensaver.sh"))
 hl.bind(mainMod .. " + ALT + T", hl.dsp.exec_cmd("~/.config/ml4w/settings/tclock.sh"))
-hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(ipc .. " powerProfile toggleNoctaliaPerformance"))
+
 
 -- Windows
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
@@ -32,8 +32,8 @@ hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.exec_cmd("hyprctl dispatch resizeactive 100 0"))
 hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.resize({ x = 100, y = 0, relative = true }))
 hl.bind(mainMod .. " + SHIFT + left", hl.dsp.window.resize({ x = -100, y = 0, relative = true }))
-hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = -100, relative = true }))
-hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = 100, relative = true }))
+hl.bind(mainMod .. " + SHIFT + down", hl.dsp.window.resize({ x = 0, y = 100, relative = true }))
+hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -100, relative = true }))
 
 hl.bind(mainMod .. " + D", hl.dsp.layout("swapsplit"))
 
@@ -51,13 +51,56 @@ hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("~/.config/ml4w/scripts/wlogo
 hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("systemctl suspend"), { locked = true })
 
 hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("hyprctl reload"))
-hl.bind(mainMod .. " + SHIFT + A", hl.dsp.exec_cmd(HYPRSCRIPTS .. "/toggle-animations.sh"))
+
+hl.bind(mainMod .. " + SHIFT + A", function()
+if hl.get_config("animations.enabled") == false then
+	hl.exec_cmd("hyprctl reload")
+	return
+	end
+
+	hl.config({
+		animations = {
+			enabled = false,
+		}
+	})
+	end)
+
+
 hl.bind("PRINT", hl.dsp.exec_cmd(HYPRSCRIPTS .. "/screenshot.sh"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grimblast --freeze copy area"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker"))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(HYPRSCRIPTS .. "/loadconfig.sh"))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("hyprshade toggle blue-light-filter"), { locked = true })
-hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(HYPRSCRIPTS .. "/gamemode.sh"))
+
+--gamemode
+hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(ipc .. " powerProfile toggleNoctaliaPerformance"))
+hl.bind(mainMod .. " + SHIFT + G", function()
+local game_mode = (hl.get_config("animations.enabled") == false)
+
+if game_mode then
+	hl.exec_cmd("hyprctl reload")
+	return
+	end
+
+	hl.config({
+		general = {
+			gaps_in = 3, gaps_out = 3, -- Disable gaps
+			border_size = 0,
+		},
+
+		animations = {
+			enabled = false, -- Disable animations
+		},
+
+		-- Disable blur, shadow and window rounding
+		decoration = {
+			shadow = { enabled = false },
+			blur = { enabled = false },
+			rounding = 0,
+		}
+	})
+	end)
+
+
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.local/share/quickshell-lockscreen/lock.sh"))
 
 hl.bind("ALT + space", hl.dsp.exec_cmd("fcitx5-remote -t"))

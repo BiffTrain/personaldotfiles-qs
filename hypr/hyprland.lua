@@ -2,7 +2,8 @@
 -- Refer to https://wiki.hypr.land/Configuring/Start/
 
 require("conf.colors")
-require("conf.monitor")
+require("monitors")
+require("workspaces")
 require("conf.cursor")
 require("conf.keyboard")
 require("conf.autostart")
