@@ -14,7 +14,6 @@ hl.bind(mainMod .. " + Delete", hl.dsp.exec_cmd("flatpak run net.nokyan.Resource
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("~/.config/ml4w/settings/screensaver.sh"))
 hl.bind(mainMod .. " + ALT + T", hl.dsp.exec_cmd("~/.config/ml4w/settings/tclock.sh"))
 
-
 -- Windows
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + CTRL + Q", hl.dsp.exec_cmd("hyprctl activewindow | grep pid | tr -d 'pid:' | xargs kill"))
@@ -53,18 +52,20 @@ hl.bind("switch:on:Lid Switch", hl.dsp.exec_cmd("systemctl suspend"), { locked =
 hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("hyprctl reload"))
 
 hl.bind(mainMod .. " + SHIFT + A", function()
-if hl.get_config("animations.enabled") == false then
-	hl.exec_cmd("hyprctl reload")
-	return
+	if hl.get_config("animations.enabled") == false then
+		hl.config({
+			animations = {
+				enabled = true,
+			},
+		})		return
 	end
 
 	hl.config({
 		animations = {
 			enabled = false,
-		}
+		},
 	})
-	end)
-
+end)
 
 hl.bind("PRINT", hl.dsp.exec_cmd(HYPRSCRIPTS .. "/screenshot.sh"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grimblast --freeze copy area"))
@@ -74,16 +75,17 @@ hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("hyprshade toggle blue-light-
 --gamemode
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(ipc .. " powerProfile toggleNoctaliaPerformance"))
 hl.bind(mainMod .. " + SHIFT + G", function()
-local game_mode = (hl.get_config("animations.enabled") == false)
+	local game_mode = (hl.get_config("animations.enabled") == false)
 
-if game_mode then
-	hl.exec_cmd("hyprctl reload")
-	return
+	if game_mode then
+		hl.exec_cmd("hyprctl reload")
+		return
 	end
 
 	hl.config({
 		general = {
-			gaps_in = 3, gaps_out = 3, -- Disable gaps
+			gaps_in = 3,
+			gaps_out = 3, -- Disable gaps
 			border_size = 0,
 		},
 
@@ -96,10 +98,9 @@ if game_mode then
 			shadow = { enabled = false },
 			blur = { enabled = false },
 			rounding = 0,
-		}
+		},
 	})
-	end)
-
+end)
 
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.local/share/quickshell-lockscreen/lock.sh"))
 
