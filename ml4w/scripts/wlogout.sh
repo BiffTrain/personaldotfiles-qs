@@ -1,5 +1,7 @@
-res_w=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .width')
-res_h=$(hyprctl -j monitors | jq '.[] | select(.focused==true) | .height')
-h_scale=$(hyprctl -j monitors | jq '.[] | select (.focused == true) | .scale' | sed 's/\.//')
+#!/bin/bash
+
+res_h=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .height')
+h_scale=$(hyprctl -j monitors | jq -r '.[] | select(.focused == true) | .scale * 100 | floor')
 w_margin=$((res_h * 27 / h_scale))
-wlogout -b 5 -T $w_margin -B $w_margin
+
+wlogout -b 5 -T "$w_margin" -B "$w_margin"
