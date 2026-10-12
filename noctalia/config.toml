@@ -36,6 +36,9 @@ width = 850
 [desktop_widgets]
 enabled = false
 
+[hooks]
+wallpaper_changed = "/home/elhobo/dotfiles/hypr/scripts/wallpaper.sh \"$NOCTALIA_WALLPAPER_PATH\""
+
 [location]
 address = "Millbrae, US"
 
@@ -157,6 +160,7 @@ type = "noctalia/bongocat:cat"
 
 [widget.clock]
 format = "{:%h %d | %H:%M:%S}"
+
 
 [widget.media]
 album_art_only = true
