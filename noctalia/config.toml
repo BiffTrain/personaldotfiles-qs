@@ -1,0 +1,2 @@
+[hooks]
+wallpaper_changed = "~/dotfiles/hypr/scripts/wallpaper.sh  \"$NOCTALIA_WALLPAPER_PATH\""

@@ -16,7 +16,6 @@ if status is-interactive
     # -----------------------------------------------------
     oh-my-posh init fish --config ~/.config/fish/theme/EDM115-newline.omp.json | source
 
-
     # -----------------------------------------------------
     # General
     # -----------------------------------------------------
@@ -33,7 +32,7 @@ if status is-interactive
     alias tclock='tclock -c blue'
     alias clock='tclock'
     alias cl='tclock'
-
+    alias e='exit'
     # -----------------------------------------------------
     # CustomAlias
     # -----------------------------------------------------
@@ -42,8 +41,4 @@ if status is-interactive
     alias retarded-ass-motherfucker-you-should-kill-yourself-NOW='reboot'
     alias keybindconf='$EDITOR ~/.config/hypr/conf/keybinding.lua'
 
-
-
 end
-
-

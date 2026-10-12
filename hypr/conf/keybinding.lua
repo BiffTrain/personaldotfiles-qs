@@ -3,7 +3,7 @@ local colors = require("conf.colors")
 local mainMod = "SUPER"
 local HYPRSCRIPTS = "~/.config/hypr/scripts"
 local SCRIPTS = "~/.config/ml4w/scripts"
-local ipc = "qs -c noctalia-shell ipc call"
+local ipc = "noctalia msg "
 
 -- Applications
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("~/.config/ml4w/settings/terminal.sh"))
@@ -37,13 +37,17 @@ hl.bind(mainMod .. " + SHIFT + up", hl.dsp.window.resize({ x = 0, y = -100, rela
 hl.bind(mainMod .. " + D", hl.dsp.layout("swapsplit"))
 
 -- Actions / Core binds
-hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(ipc .. " launcher toggle"))
-hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. " notifications toggleHistory"))
-hl.bind("SUPER + comma", hl.dsp.exec_cmd(ipc .. " settings toggle"))
-hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. " launcher clipboard"))
-hl.bind("SUPER + semicolon", hl.dsp.exec_cmd(ipc .. " launcher emoji"))
-hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd(ipc .. " bar toggle"))
-hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd(ipc .. " wallpaper toggle"))
+hl.bind("SUPER + SPACE", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher"))
+hl.bind("SUPER + N", hl.dsp.exec_cmd(ipc .. "panel-toggle control-center notifications"))
+hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(ipc .. " notification-dnd-toggle"))
+hl.bind(mainMod .. " + CTRL + N", hl.dsp.exec_cmd(ipc .. " notification-clear-history"))
+hl.bind("SUPER + comma", hl.dsp.exec_cmd(ipc .. "settings-open"))
+hl.bind("SUPER + V", hl.dsp.exec_cmd(ipc .. "panel-toggle clipboard"))
+hl.bind("SUPER + semicolon", hl.dsp.exec_cmd(ipc .. "panel-toggle launcher /emo"))
+hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd(ipc .. "bar-toggle topbar"))
+hl.bind(mainMod .. " + CTRL + W", hl.dsp.exec_cmd(ipc .. " panel-toggle wallpaper"))
+hl.bind(mainMod .. " + CTRL + C", hl.dsp.exec_cmd(ipc .. " panel-toggle control-center"))
+
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd("~/.config/ml4w/scripts/wlogout.sh"))
 
 -- System configuration
@@ -57,7 +61,8 @@ hl.bind(mainMod .. " + SHIFT + A", function()
 			animations = {
 				enabled = true,
 			},
-		})		return
+		})
+		return
 	end
 
 	hl.config({
@@ -68,12 +73,13 @@ hl.bind(mainMod .. " + SHIFT + A", function()
 end)
 
 hl.bind("PRINT", hl.dsp.exec_cmd(HYPRSCRIPTS .. "/screenshot.sh"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grimblast --freeze copy area"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(ipc .. "screenshot-region"))
 hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("hyprpicker"))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("hyprshade toggle blue-light-filter"), { locked = true })
 
 --gamemode
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd(ipc .. " powerProfile toggleNoctaliaPerformance"))
+
 hl.bind(mainMod .. " + SHIFT + G", function()
 	local game_mode = (hl.get_config("animations.enabled") == false)
 
