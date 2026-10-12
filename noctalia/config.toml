@@ -1,2 +1,168 @@
-[hooks]
-wallpaper_changed = "~/dotfiles/hypr/scripts/wallpaper.sh  \"$NOCTALIA_WALLPAPER_PATH\""
+[audio]
+enable_overdrive = true
+
+[bar]
+order = [ "topbar" ]
+
+    [bar.topbar]
+    background_opacity = 0.61999998614192009
+    border = "tertiary"
+    capsule = true
+    capsule_fill = "on_primary"
+    capsule_foreground = "primary"
+    capsule_padding = 5.0
+    capsule_thickness = 0.63999998942017555
+    center = []
+    contact_shadow = true
+    end = [ "media", "tray", "bluetooth", "network", "notifications", "caffeine", "volume", "session", "clock", "cat" ]
+    font_scale = 0.69999999180436134
+    margin_edge = 3
+    margin_ends = 10
+    padding = 15
+    panel_overlap = 0
+    radius = 80
+    scale = 1.4000000134110451
+    start = [ "workspaces", "battery" ]
+    thickness = 46
+
+[battery]
+warning_threshold = 15
+
+[control_center]
+sidebar = "full"
+sidebar_section = "none"
+width = 850
+
+[desktop_widgets]
+enabled = false
+
+[location]
+address = "Millbrae, US"
+
+[lockscreen]
+edge_smoothness = 0.63999998569488525
+enabled = false
+transition_duration = 2000
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 960.0
+    cy = 898.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[notification]
+background_opacity = 0.1099999975413084
+scale = 1.0500000081956387
+width = 400
+
+[osd]
+background_opacity = 0.15999999642372131
+
+[plugins]
+enabled = [ "noctalia/bongocat" ]
+
+[shell]
+font_family = "Liberation Mono"
+password_style = "random"
+polkit_agent = true
+settings_expand_all_groups = true
+settings_window_translucent = true
+telemetry_enabled = true
+
+    [shell.animation]
+    speed = 0.5000000074505806
+
+    [shell.launcher]
+    pinned = [ "vesktop", "zen" ]
+    show_app_actions = true
+
+        [shell.launcher.providers.calculator]
+        prefix = "calc"
+
+        [shell.launcher.providers.panels]
+        global = true
+
+    [shell.panel]
+    clipboard_position = "center_left"
+    floating_layer = "top"
+    list_item_background = true
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
+    open_near_click_launcher = true
+    transparency_mode = "glass"
+    wallpaper_placement = "floating"
+    wallpaper_position = "center_right"
+
+    [shell.screen_corners]
+    size = 100
+
+    [shell.screenshot]
+    annotate = true
+
+[theme]
+builtin = "Noctalia"
+mode = "dark"
+source = "wallpaper"
+
+[wallpaper]
+directory = "/home/elhobo/wallpaper"
+
+    [wallpaper.default]
+    path = "/home/elhobo/wallpaper/wallhaven-72kjz9.jpg"
+
+    [wallpaper.last]
+    path = "/home/elhobo/wallpaper/wallhaven-72kjz9.jpg"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/elhobo/wallpaper/wallhaven-72kjz9.jpg"
+
+[weather]
+refresh_minutes = 60
+
+[widget.cat]
+font_scale = 1.8100000000000001
+scale = 1.1000000000000001
+type = "noctalia/bongocat:cat"
+
+[widget.clock]
+format = "{:%h %d | %H:%M:%S}"
+
+[widget.media]
+album_art_only = true
+rotate_album_art = true
+
+[widget.session.actions]
+left = "exec ~/dotfiles/ml4w/scripts/wlogout.sh"
+middle = "none"
+right = "caffeine-toggle"
